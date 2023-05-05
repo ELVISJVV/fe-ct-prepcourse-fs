@@ -6,6 +6,16 @@ function deObjetoAarray(objeto) {
    // Estos elementos debe ser cada par clave:valor del objeto recibido.
    // [EJEMPLO]: {D: 1, B: 2, C: 3} ---> [['D', 1], ['B', 2], ['C', 3]].
    // Tu código:
+   let array = []
+   for (const property in objeto) {
+      let newarray = []
+      newarray.push(property)
+      newarray.push(objeto[property])
+      
+      array.push(newarray)
+   
+   }
+   return array
 }
 
 function numberOfCharacters(string) {
@@ -14,6 +24,29 @@ function numberOfCharacters(string) {
    // Las letras deben estar en orden alfabético.
    // [EJEMPLO]: "adsjfdsfsfjsdjfhacabcsbajda" ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 }
    // Tu código:
+   let objeto = {}
+   console.log(string.length)
+   for(let i = 0; i < string.length; i++){
+      let contador = 0
+      for(let j = 0; j < string.length; j++){
+         if (string[i] === string[j]){
+            contador ++
+
+         }
+      }
+      objeto[string[i]] = contador
+   }
+   
+   let obj2 = {}
+   let array = Object.keys(objeto).sort()
+   for (let i = 0; i < array.length; i++){
+      obj2[array[i]] = objeto[array[i]]
+   }
+   
+   // )
+   
+
+   return obj2
 }
 
 function capToFront(string) {
@@ -22,6 +55,17 @@ function capToFront(string) {
    // Retornar el string.
    // [EJEMPLO]: soyHENRY ---> HENRYsoy
    // Tu código:
+
+   let mayusculas = ""
+   let minusculas = ""
+   for (let i = 0; i < string.length; i++){
+      if (string[i] === string[i].toUpperCase()){
+         mayusculas += string[i]
+      }else{
+         minusculas += string[i]
+      }
+   }  
+   return mayusculas + minusculas
 }
 
 function asAmirror(frase) {
@@ -29,6 +73,17 @@ function asAmirror(frase) {
    // La diferencia es que cada palabra estará escrita al inverso.
    // [EJEMPLO]: "The Henry Challenge is close!"  ---> "ehT yrneH egnellahC si !esolc"
    // Tu código:
+   let array = frase.split(" ")
+   let newarray = []
+   for (let i = 0; i < array.length; i++){
+      let newstring = ""
+      for (let j = array[i].length - 1; j >= 0; j--){
+         newstring += array[i][j]
+      }
+      newarray.push(newstring)
+   }
+   return newarray.join(" ")
+   
 }
 
 function capicua(numero) {
